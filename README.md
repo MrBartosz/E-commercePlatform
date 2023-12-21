@@ -2,9 +2,9 @@
 
 [Your Demo Link Here](http://replace-with-your-link.com)
 
-**Demo Credentials (If applicable):**
-- **Username:** ReplaceThisWithUsername
-- **Password:** ReplaceThisWithPassword
+**Demo Credentials:**
+- **Username:** 1
+- **Password:** 2
 
 ## 📖 About this Software
 
