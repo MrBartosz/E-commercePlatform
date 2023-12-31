@@ -6,12 +6,8 @@ const links = [
     path: '/',
   },
   {
-    title: 'Login',
-    path: '/login',
-  },
-  {
-    title: 'SignIn',
-    path: '/signIn',
+    title: 'About',
+    path: '/about',
   },
 ]
 
