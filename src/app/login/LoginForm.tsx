@@ -1,5 +1,6 @@
-import { useState, ChangeEvent, FormEvent } from 'react'
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
+import cookie from 'cookie'
 
 interface LoginFormProps {
   onLogin: () => void
@@ -11,10 +12,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   const [error, setError] = useState('')
   const router = useRouter()
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (email === 'admin@example.com' && password === 'admin') {
+      document.cookie = cookie.serialize('isLoggedIn', 'true', {
+        maxAge: 60 * 60 * 24 * 7,
+        path: '/',
+      })
+
       onLogin()
       router.push('/')
     } else {
@@ -25,6 +31,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   const handleRegisterClick = () => {
     router.push('/signIn')
   }
+
+  useEffect(() => {
+    const isLoggedIn = document.cookie.includes('isLoggedIn=true')
+
+    if (isLoggedIn) {
+      onLogin()
+    }
+  }, [onLogin])
 
   return (
     <div className='flex items-center justify-center mt-20'>
