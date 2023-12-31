@@ -30,6 +30,10 @@ const SignInPage: React.FC = () => {
     router.push('/')
   }
 
+  const handleGoBackClick = () => {
+    router.push('/login')
+  }
+
   return (
     <div className='flex items-center justify-center mt-20'>
       <form
@@ -71,13 +75,21 @@ const SignInPage: React.FC = () => {
             required
           />
         </label>
-
-        <button
-          type='submit'
-          className='bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600'
-        >
-          Register
-        </button>
+        <div className='flex justify-center gap-5'>
+          <button
+            type='submit'
+            className='bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600'
+          >
+            Register
+          </button>
+          <button
+            type='button'
+            className='bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600'
+            onClick={handleGoBackClick}
+          >
+            Go Back
+          </button>
+        </div>
       </form>
     </div>
   )
