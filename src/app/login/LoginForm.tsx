@@ -32,13 +32,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
     router.push('/signIn')
   }
 
-  useEffect(() => {
-    const isLoggedIn = document.cookie.includes('isLoggedIn=true')
+  const handleForgotPasswordClick = () => {}
 
-    if (isLoggedIn) {
-      onLogin()
-    }
-  }, [onLogin])
+  //   useEffect(() => {
+  //     const isLoggedIn = document.cookie.includes('isLoggedIn=true')
+
+  //     if (isLoggedIn) {
+  //       onLogin()
+  //     }
+  //   }, [onLogin])
 
   return (
     <div className='flex items-center justify-center mt-20'>
@@ -81,6 +83,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
           >
             Register
           </button>
+        </div>
+        <div className='flex justify-center align-center mt-7'>
+          <a
+            href='#'
+            onClick={handleForgotPasswordClick}
+            className='text-black-500'
+          >
+            Forgot Password
+          </a>
         </div>
       </form>
     </div>
