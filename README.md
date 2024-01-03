@@ -4,9 +4,10 @@
 
 DEMO LINK - 
 
-Demo Credentials (If you dont want to register):
+**Demo Credentials** (If you dont want to register):
 
 **Email: Admin@example.com**
+
 **Password: Admin**
 
 ## 📖 About this Software
