@@ -1,17 +1,21 @@
 import bcrypt from 'bcryptjs'
-import { NextResponse } from 'next/server'
+import { NextApiRequest, NextApiResponse } from 'next'
 import { connectMongoDB } from '@/lib/mongodb'
 import User from '@/models/user'
 
-export async function POST(req) {
-  try {
-    const { name, email, password } = await req.json()
-    const hashedPassword = await bcrypt.hash(password, 10)
-    await connectMongoDB()
-    await User.create({ name, email, password: hashedPassword })
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'POST') {
+    try {
+      const { name, email, password } = await req.body
+      const hashedPassword = await bcrypt.hash(password, 10)
+      await connectMongoDB()
+      await User.create({ name, email, password: hashedPassword })
 
-    return NextResponse.json({ message: 'User registered.' }, { status: 201 })
-  } catch (error) {
-    return NextResponse.json({ message: 'An error occurred while registering the user.' }, { status: 500 })
+      return res.status(201).json({ message: 'User registered.' })
+    } catch (error) {
+      return res.status(500).json({ message: 'An error occurred while registering the user.' })
+    }
+  } else {
+    return res.status(405).json({ message: 'Method Not Allowed' })
   }
 }

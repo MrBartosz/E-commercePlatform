@@ -1,16 +1,22 @@
 import bcrypt from 'bcryptjs'
-import NextAuth, { NextAuthOptions } from 'next-auth'
+import NextAuth, { AuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { connectMongoDB } from '@/lib/mongodb'
 import User from '@/models/user'
-export const authOptions: NextAuthOptions = {
+
+interface Credentials {
+  email: string
+  password: string
+}
+
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'credentials',
       credentials: {},
 
-      async authorize(credentials) {
-        const { email, password } = credentials
+      async authorize(credentials: Partial<Credentials> | undefined, req) {
+        const { email, password } = credentials as Credentials
 
         try {
           await connectMongoDB()
@@ -29,6 +35,7 @@ export const authOptions: NextAuthOptions = {
           return user
         } catch (error) {
           console.log('Error: ', error)
+          return null
         }
       },
     }),
