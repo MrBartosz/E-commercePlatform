@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
 import Footer from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -10,7 +11,11 @@ export const metadata = {
   title: 'E-commerce Platform',
 }
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: ReactNode
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en'>
       <body className={inter.className}>
