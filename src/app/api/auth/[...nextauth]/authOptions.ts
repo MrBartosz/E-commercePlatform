@@ -1,10 +1,9 @@
 import bcrypt from 'bcryptjs'
-import { AuthOptions } from 'next-auth'
-import NextAuth from 'next-auth/next'
+import NextAuth, { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { connectMongoDB } from '@/lib/mongodb'
 import User from '@/models/user'
-const authOptions: AuthOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -46,4 +45,4 @@ const authOptions: AuthOptions = {
 
 const handler = NextAuth(authOptions)
 
-export { authOptions, handler as GET, handler as POST }
+export { handler as GET, handler as POST }
