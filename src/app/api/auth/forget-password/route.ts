@@ -1,7 +1,7 @@
-import User from '@/models/user'
-import { connectMongoDB } from '@/lib/mongodb'
-import { NextResponse } from 'next/server'
 import crypto from 'crypto'
+import { NextResponse } from 'next/server'
+import { connectMongoDB } from '@/lib/mongodb'
+import User from '@/models/user'
 
 export const POST = async (request: any) => {
   const { email, password } = await request.json()

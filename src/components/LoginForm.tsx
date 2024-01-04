@@ -1,8 +1,8 @@
 'use client'
-import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { useState, FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
 
 const LoginForm = () => {
   const [isLoginFailed, setIsLoginFailed] = useState(false)

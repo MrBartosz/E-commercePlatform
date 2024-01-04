@@ -1,8 +1,8 @@
 'use client'
-import { signIn, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import React, { useState, useEffect, FormEvent } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { signIn, useSession } from 'next-auth/react'
 
 const ResetPassword = () => {
   const router = useRouter()

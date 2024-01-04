@@ -59,7 +59,7 @@
     "array-callback-return": "off",
     "no-return-assign": "off",
     "consistent-return": "off",
-    "react/jsx-max-props-per-line": [{ "maximum": 0 }]
+    "react/jsx-max-props-per-line": [1, { "maximum": 2 }]
   },
   "overrides": [
     {
