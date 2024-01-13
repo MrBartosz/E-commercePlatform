@@ -11,7 +11,7 @@ const ResetPassword = () => {
 
   useEffect(() => {
     if (sessionStatus === 'authenticated') {
-      router.replace('/dashboard')
+      router.push('/dashboard')
     }
   }, [sessionStatus, router])
 
@@ -51,12 +51,6 @@ const ResetPassword = () => {
       console.log(error)
     }
   }
-
-  useEffect(() => {
-    if (sessionStatus === 'authenticated') {
-      router.push('/')
-    }
-  }, [sessionStatus, router])
 
   if (sessionStatus === 'loading') {
     return <h1>Loading...</h1>
