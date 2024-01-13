@@ -2,22 +2,18 @@
 import React, { FormEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { signIn, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 
 const ResetPassword = () => {
   const router = useRouter()
   const [error, setError] = useState('')
   const { data: session, status: sessionStatus } = useSession()
 
-  useEffect(
-    () => {
-      if (sessionStatus === 'authenticated') {
-        router.replace('/dashboard')
-      }
-    },
-    [sessionStatus],
-    router,
-  )
+  useEffect(() => {
+    if (sessionStatus === 'authenticated') {
+      router.replace('/dashboard')
+    }
+  }, [sessionStatus, router])
 
   const isValidEmail = (email: string) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
@@ -55,6 +51,12 @@ const ResetPassword = () => {
       console.log(error)
     }
   }
+
+  useEffect(() => {
+    if (sessionStatus === 'authenticated') {
+      router.push('/')
+    }
+  }, [sessionStatus, router])
 
   if (sessionStatus === 'loading') {
     return <h1>Loading...</h1>

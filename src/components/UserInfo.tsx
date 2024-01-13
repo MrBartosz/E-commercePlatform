@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { signOut } from 'next-auth/react'
 import { useSession } from 'next-auth/react'
@@ -8,8 +9,13 @@ export default function UserInfo() {
   const { data: session } = useSession()
   const router = useRouter()
 
+  useEffect(() => {
+    if (!session) {
+      router.push('/')
+    }
+  }, [session, router])
+
   if (!session) {
-    router.push('/')
     return null
   }
 
