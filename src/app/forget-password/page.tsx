@@ -11,7 +11,7 @@ const ResetPassword = () => {
 
   useEffect(() => {
     if (sessionStatus === 'authenticated') {
-      router.push('/dashboard')
+      router.replace('/dashboard')
     }
   }, [sessionStatus, router])
 
