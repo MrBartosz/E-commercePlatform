@@ -1,14 +1,21 @@
 // Pagination.js
 import React from 'react'
 
-const Pagination = ({ productsPerPage, totalProducts, currentPage, onPageChange }) => {
+interface PaginationProps {
+  productsPerPage: number
+  totalProducts: number
+  currentPage: number
+  onPageChange: (pageNumber: number) => void
+}
+
+const Pagination: React.FC<PaginationProps> = ({ productsPerPage, totalProducts, currentPage, onPageChange }) => {
   const pageNumbers = []
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i)
   }
 
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     onPageChange(pageNumber)
     window.scrollTo(0, 0)
   }

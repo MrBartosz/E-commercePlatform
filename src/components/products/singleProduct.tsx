@@ -1,14 +1,30 @@
 import Image from 'next/image'
-const SingleProduct = ({ product }) => {
+
+interface SingleProductProps {
+  product: {
+    id: number
+    name: string
+    price: number
+    image: { url: string }
+    description: { html: string }
+  }
+  onClick?: () => void
+  productSelected?: boolean
+}
+
+const SingleProduct: React.FC<SingleProductProps> = ({ product, onClick, productSelected }) => {
   return (
-    <div className='my-10 px-4 mx-2 items-center'>
-      <div className='my-7'>
+    <div
+      className={`my-${productSelected ? '0' : '10'} px-4 mx-2 items-center`}
+      onClick={onClick}
+    >
+      <div className={`my-${productSelected ? '2' : '7'}`}>
         <Image
           src={product.image.url}
           width={100}
           height={200}
           alt=''
-          className='object-cover w-full transition duration-500 ease-in-out hover:scale-110'
+          className={`hover:scale-${productSelected ? '' : '110'} object-cover w-full transition duration-500 ease-in-out`}
         />
       </div>
       <div className='flex-basis-1/2'>
