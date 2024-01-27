@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SingleProduct from '@/components/products/singleProduct'
 import { defaultProductValues } from '../api/auth/constants/constants'
 import { mockProducts } from '../api/auth/mocks/mocks'
@@ -9,11 +9,19 @@ import Pagination from './pagination'
 const ProductsPage = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [productSelectedId, setProductSelectedId] = useState<number | null>(null)
+  const [searchQuery, setSearchQuery] = useState<string>('')
   const productsPerPage = 20
+
+  const filteredProducts = mockProducts.filter((product) => product.name.toLowerCase().includes(searchQuery.toLowerCase()))
+  const totalFilteredProducts = filteredProducts.length
 
   const indexOfLastProduct = currentPage * productsPerPage
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage
-  const currentProducts = mockProducts.slice(indexOfFirstProduct, indexOfLastProduct)
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct)
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [searchQuery])
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber)
@@ -43,6 +51,16 @@ const ProductsPage = () => {
         </div>
       ) : (
         <>
+          <div className='flex justify-center mt-5'>
+            <input
+              type='text'
+              placeholder='Search products...'
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className='p-2 border border-gray-300 rounded-md'
+            />
+          </div>
+          {searchQuery && currentProducts.length === 0 && <div className='text-center mt-2 text-gray-600'>No products found.</div>}
           <div className='flex flex-wrap justify-center mx-auto lg:w-3/4 mt-5'>
             {currentProducts.map((product) => (
               <SingleProduct
@@ -55,7 +73,7 @@ const ProductsPage = () => {
           </div>
           <Pagination
             productsPerPage={productsPerPage}
-            totalProducts={mockProducts.length}
+            totalProducts={totalFilteredProducts}
             currentPage={currentPage}
             onPageChange={handlePageChange}
           />
