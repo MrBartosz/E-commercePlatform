@@ -43,7 +43,7 @@ const ProductsPage = () => {
         </div>
       ) : (
         <>
-          <div className='flex flex-wrap justify-center mx-auto lg:w-3/4'>
+          <div className='flex flex-wrap justify-center mx-auto lg:w-3/4 mt-5'>
             {currentProducts.map((product) => (
               <SingleProduct
                 key={product.id}
