@@ -15,14 +15,16 @@ interface SingleProductProps {
 const SingleProduct: React.FC<SingleProductProps> = ({ product, onClick, productSelected }) => {
   return (
     <div
-      className={`my-${productSelected ? '0' : '10'} px-4 mx-2 items-center`}
+      className={`my-${productSelected ? '0' : '10'} px-4 mx-2 my-4 items-center`}
       onClick={onClick}
     >
-      <div className={`my-${productSelected ? '2' : '7'}`}>
+      <div
+        className={`my-${productSelected ? '2' : '7'}`}
+        style={{ width: 244, height: 370, position: 'relative' }}
+      >
         <Image
           src={product.image.url}
-          width={100}
-          height={200}
+          layout='fill'
           alt=''
           className={`hover:scale-${productSelected ? '' : '110'} object-cover w-full transition duration-500 ease-in-out`}
         />
