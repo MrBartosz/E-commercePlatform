@@ -15,11 +15,11 @@ interface SingleProductProps {
 const SingleProduct: React.FC<SingleProductProps> = ({ product, onClick, productSelected }) => {
   return (
     <div
-      className={`my-${productSelected ? '0' : '10'} px-4 mx-2 my-4 items-center`}
+      className={`my-${productSelected ? '' : '10'} px-4 mx-2 my-4 items-center`}
       onClick={onClick}
     >
       <div
-        className={`my-${productSelected ? '2' : '7'}`}
+        className={`my-${productSelected ? '' : '7'}`}
         style={{ width: 244, height: 370, position: 'relative' }}
       >
         <Image
