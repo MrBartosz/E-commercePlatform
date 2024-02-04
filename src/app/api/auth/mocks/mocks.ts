@@ -271,7 +271,6 @@ export const mockProducts = [
     category: 'Home',
     popularity: 'Medium',
   },
-
   {
     id: 18,
     name: 'Dumbbell Set',

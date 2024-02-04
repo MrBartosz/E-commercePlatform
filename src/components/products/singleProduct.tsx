@@ -50,24 +50,27 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product, onClick, product
     })
   }
 
+  const hoverClassName = productSelected ? '' : 'hover:scale-110'
+  const marginClassName = productSelected ? '' : 'my-7'
+
   return (
     <>
       <div
-        className={`my-${productSelected ? '' : '10'} px-4 mx-2 my-4 items-center`}
+        className={`${marginClassName} px-4 mx-2 my-4 items-center`}
         onClick={onClick}
       >
         <div
           onMouseLeave={handleMouseLeave}
           onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
-          className={`my-${productSelected ? '' : '7'} `}
+          className={`${marginClassName}`}
           style={{ width: 244, height: 370, position: 'relative' }}
         >
           <Image
             src={product.image.url}
             layout='fill'
             alt=''
-            className={`hover:scale-${productSelected ? '' : '110'} object-cover w-full transition duration-500 ease-in-out`}
+            className={`${hoverClassName} object-cover w-full transition duration-500 ease-in-out`}
           />
           {productSelected && (
             <div
