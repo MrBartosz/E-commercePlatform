@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
 import Footer from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { CartProvider } from '@/contexts/CartContext'
 import { AuthProvider } from './Providers'
 import './globals.css'
 
@@ -20,9 +21,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <CartProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </CartProvider>
         </AuthProvider>
       </body>
     </html>
