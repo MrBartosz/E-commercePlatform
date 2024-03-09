@@ -18,7 +18,10 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang='en'>
+    <html
+      lang='en'
+      className='scrollbar-thin scrollbar-thumb-rose-500 scrollbar-track-white overflow-y-scroll'
+    >
       <body className={inter.className}>
         <AuthProvider>
           <CartProvider>

@@ -34,11 +34,20 @@ const Navbar = () => {
     router.push('/basketPage')
   }
 
+  const handleNameClick = () => {
+    router.push('/dashboard')
+  }
+
   return (
     <>
       {session ? (
         <div className='flex items-center gap-4'>
-          <p>Welcome {session?.user?.name}</p>
+          <p
+            onClick={handleNameClick}
+            className='cursor-pointer'
+          >
+            Welcome {session?.user?.name}
+          </p>
           <div
             className='relative'
             onClick={handleBasketClick}
@@ -46,7 +55,7 @@ const Navbar = () => {
             <span
               role='img'
               aria-label='cart'
-              className='text-2xl cursor-pointer'
+              className='text-2xl cursor-pointer mr-10'
             >
               🛒
             </span>
