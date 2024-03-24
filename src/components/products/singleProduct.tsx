@@ -21,7 +21,8 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product, onClick, product
   const [position, setPosition] = useState({ x: 100, y: 100, mouseX: 0, mouseY: 0 })
   const { addToCart } = useContext(CartContext)
 
-  const handleCartButton = () => {
+  const handleCartButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
     addToCart(product)
   }
 
