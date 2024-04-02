@@ -1,4 +1,4 @@
-**This is an application to ..**
+**This is an application to ...**
 ## 🌐 Demo
 
 DEMO LINK - 
