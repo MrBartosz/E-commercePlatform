@@ -1,4 +1,4 @@
-import React, { MouseEvent, useContext, useEffect, useState } from 'react'
+import React, { MouseEvent, useContext, useState } from 'react'
 import Image from 'next/image'
 import { CartContext } from '@/contexts/CartContext'
 

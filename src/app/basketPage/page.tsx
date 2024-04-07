@@ -1,6 +1,7 @@
 'use client'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { CartContext } from '@/contexts/CartContext'
 
 interface QuantityState {
@@ -8,9 +9,14 @@ interface QuantityState {
 }
 
 const BasketPage = () => {
-  const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity, quantities } = useContext(CartContext)
+  const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity, quantities, totalPrice } = useContext(CartContext)
+  const [localTotalPrice, setLocalTotalPrice] = useState(totalPrice)
 
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * (quantities[item.id] || 0), 0)
+  useEffect(() => {
+    setLocalTotalPrice(totalPrice)
+  }, [totalPrice])
+
+  const router = useRouter()
 
   const handleRemoveItem = (itemId: number) => {
     removeFromCart(itemId)
@@ -24,9 +30,13 @@ const BasketPage = () => {
     decreaseQuantity(itemId)
   }
 
+  const handleClick = () => {
+    router.replace('/shipping')
+  }
+
   return (
     <div className='text-center mt-5'>
-      <h2 className='text-2xl font-bold mb-4'>Total Price: ${totalPrice.toFixed(2)}</h2>
+      <h2 className='text-2xl font-bold mb-4'>Total Price: ${localTotalPrice.toFixed(2)}</h2>
       {cartItems.map((item, index) => (
         <div
           key={index}
@@ -69,6 +79,12 @@ const BasketPage = () => {
           </div>
         </div>
       ))}
+      <button
+        className='bg-sky-900 hover:bg-sky-950 text-white font-bold mt-20 py-2 px-12 rounded focus:outline-none focus:shadow-outline'
+        onClick={handleClick}
+      >
+        Continue
+      </button>
     </div>
   )
 }
