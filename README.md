@@ -5,7 +5,7 @@ DEMO LINK -
 
 **Demo Credentials** (If you dont want to register):
 
-**Email: Admin@example.com**
+**Email: admin@example.com**
 
 **Password: 123**
 
