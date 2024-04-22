@@ -4,18 +4,27 @@
 DEMO LINK - 
 
 **Demo Credentials** (If you dont want to register):
-
+<p>
+<a>
 As an ADMIN:
-
+  
 **Email: admin@example.com**
 
 **Password: 123**
 
+</a>
+
+<a>
+  
 As an USER:
 
 **Email: maksimowski@gmail.com**
 
 **Password: 123**
+
+</a>
+</p>
+
 
 
 ## 📖 About this Software
