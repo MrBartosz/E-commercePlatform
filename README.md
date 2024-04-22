@@ -7,7 +7,7 @@ DEMO LINK -
 
 **Email: Admin@example.com**
 
-**Password: Admin**
+**Password: 123**
 
 ## 📖 About this Software
 
