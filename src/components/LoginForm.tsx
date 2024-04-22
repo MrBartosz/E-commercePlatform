@@ -15,7 +15,11 @@ const LoginForm = () => {
       redirect: false,
     })
     if (response?.ok) {
-      router.push('/dashboard')
+      if (email === 'admin@example.com') {
+        router.push('/admin-dashboard')
+      } else {
+        router.push('/dashboard')
+      }
       setIsLoginFailed(false)
     } else {
       console.error('Error during login:', response?.error)

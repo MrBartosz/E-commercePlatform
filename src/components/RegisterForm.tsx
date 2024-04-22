@@ -46,7 +46,7 @@ export default function RegisterForm() {
         form.reset()
         router.push('/')
       } else {
-        console.log('User registration failed.')
+        console.log('User registration failed.', error)
       }
     } catch (error) {
       console.log('Error during registration: ', error)
