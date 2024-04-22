@@ -5,9 +5,18 @@ DEMO LINK -
 
 **Demo Credentials** (If you dont want to register):
 
+As an ADMIN:
+
 **Email: admin@example.com**
 
 **Password: 123**
+
+As an USER:
+
+**Email: maksimowski@gmail.com**
+
+**Password: 123**
+
 
 ## 📖 About this Software
 
