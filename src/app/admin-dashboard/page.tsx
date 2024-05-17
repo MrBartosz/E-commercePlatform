@@ -14,7 +14,7 @@ const AdminDashboard = () => {
     router.push('/products')
   }
   return (
-    <div className='min-h-screen flex flex-col justify-center items-center'>
+    <div className='min-h-screen flex flex-col justify-center items-center mx-4'>
       <h1 className='text-3xl font-bold mb-4'>Welcome, {session.user.name}!</h1>
       <p className='text-lg text-gray-600 mb-8'>You are logged in as an administrator. You have additional functionalities.</p>
       <div className='flex gap-5'>
@@ -24,7 +24,7 @@ const AdminDashboard = () => {
         >
           View Products
         </button>
-        <button className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600'>View Users</button>
+        <button className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600'>View Bugs</button>
       </div>
     </div>
   )
