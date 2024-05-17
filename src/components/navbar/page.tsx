@@ -35,7 +35,11 @@ const Navbar = () => {
   }
 
   const handleNameClick = () => {
-    router.push('/dashboard')
+    if (session?.user?.email === 'admin@example.com') {
+      router.push('/admin-dashboard')
+    } else {
+      router.push('/dashboard')
+    }
   }
 
   return (
