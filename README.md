@@ -1,4 +1,4 @@
-**"Experience a sleek E-commerce platform for online shopping. Enjoy easy browsing, smart search, seamless checkouts, powerful admin tools, and top-notch security. Convenient and responsive, it's your one-stop solution for managing a vibrant online store. Shop, manage, and enjoy with ease!**
+**Seamless online shopping. Easy browsing, smart search, secure checkouts. Manage your store effortlessly.**
 ## 🌐 Demo
 
 DEMO LINK - https://e-commerce-platform-ten.vercel.app/
