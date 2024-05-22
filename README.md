@@ -1,7 +1,13 @@
-**This is an application to ...**
+**Online shopping with sleek E-commerce platform. Enjoy easy browsing, smart search, seamless checkouts, powerful admin tools, and top-notch security. Convenient and responsive, it's your one-stop solution for a vibrant online store. Shop, manage, and enjoy with ease!
+
+
+
+
+
+**
 ## 🌐 Demo
 
-DEMO LINK - 
+DEMO LINK - https://e-commerce-platform-ten.vercel.app/
 
 **Demo Credentials** (If you dont want to register):
 <p>
