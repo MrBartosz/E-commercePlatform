@@ -67,6 +67,4 @@ To give you a visual overview of the application, here are some screenshots:
 17. **Tailwind CSS**
 18. **Tailwind Scrollbar**
 19. **Punycode**
-20. 
-
 
